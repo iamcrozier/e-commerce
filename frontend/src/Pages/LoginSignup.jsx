@@ -15,7 +15,7 @@ const LoginSignup = () => {
 
   const login = async () => {
     let responseData;
-    await fetch("http://localhost:4000/api/user/login", {
+    await fetch("https://e-commerce-backend-u8n8.onrender.com/api/user/login", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -37,7 +37,7 @@ const LoginSignup = () => {
 
   const signUp = async () => {
     let responseData;
-    await fetch("http://localhost:4000/api/user/signup", {
+    await fetch("https://e-commerce-backend-u8n8.onrender.com/api/user/signup", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
