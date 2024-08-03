@@ -26,7 +26,7 @@ const AddProduct = () => {
     let formData = new FormData();
     formData.append("product", image);
 
-    await fetch("http://localhost:4000/upload", {
+    await fetch("https://e-commerce-backend-u8n8.onrender.com/upload", {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -41,7 +41,7 @@ const AddProduct = () => {
     if (responseData.success) {
       product.image = responseData.image_url;
       console.log(product);
-      await fetch("http://localhost:4000/api/product/addproduct", {
+      await fetch("https://e-commerce-backend-u8n8.onrender.com/api/product/addproduct", {
         method: "post",
         headers: {
           Accept: "application/json",
