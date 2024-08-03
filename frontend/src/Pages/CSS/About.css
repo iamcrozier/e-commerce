@@ -1,0 +1,23 @@
+.about {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 80px;
+  box-sizing: border-box;
+
+  font-family: "Poppins";
+}
+
+.about h1 {
+  padding: 10px 20px;
+}
+
+.about h2 {
+  padding: 15px 25px;
+}
+
+.about p {
+  padding: 10px 30px;
+  text-align: justify;
+  text-indent: 50px;
+}
