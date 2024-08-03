@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import cors from "cors";
 import path from "path";
+import "dotenv/config";
 import { connectDB } from "./config/db.js";
 import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRouter.js";
@@ -9,7 +10,7 @@ import cartRouter from "./routes/cartRouter.js";
 import collectionRouter from "./routes/collectionRouter.js";
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors());
