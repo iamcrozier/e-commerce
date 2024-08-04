@@ -42,7 +42,7 @@ const Navbar = () => {
           </Link>
           {menu === "t-shirt" ? <hr /> : <></>}
         </li>
-        
+
         {/* <li onClick={() => setMenu("kids")}>
           <Link style={{ textDecoration: "none" }} to="/kids">
             Kids
@@ -73,7 +73,11 @@ const Navbar = () => {
             Logout
           </button>
         ) : (
-          <Link style={{ textDecoration: "none" }} to="/login">
+          <Link
+            className="nav-login-btn"
+            style={{ textDecoration: "none" }}
+            to="/login"
+          >
             <button>Login</button>
           </Link>
         )}

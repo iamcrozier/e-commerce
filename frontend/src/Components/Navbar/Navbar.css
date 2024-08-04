@@ -44,6 +44,13 @@
   background-color: #ff4141;
 }
 
+.nav-login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
 .nav-login-cart {
   display: flex;
   align-items: center;
@@ -54,6 +61,9 @@
   width: 157px;
   height: 58px;
   outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #7a7a7a;
   border-radius: 75px;
   color: #515151;
