@@ -4,7 +4,6 @@ const newCollection = async (req, res) => {
   let products = await ProductModel.find({});
   //let newcollection = products.slice(1).slice(-8);
   let newcollection = products.slice(-8);
-
   res.send(newcollection);
 };
 
