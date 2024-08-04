@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./NewCollections.css";
 import Item from "../Item/Item";
+import { ShopContext } from "../../Context/ShopContext.jsx";
 
 const NewCollections = () => {
   const [new_collection, setNew_collection] = useState([]);
+  const { url } = useContext(ShopContext);
 
   useEffect(() => {
-    fetch("https://e-commerce-backend-u8n8.onrender.com/api/collection/newcollections")
+    fetch(url + "/api/collection/newcollections")
       .then((res) => res.json())
       .then((data) => {
         setNew_collection(data);

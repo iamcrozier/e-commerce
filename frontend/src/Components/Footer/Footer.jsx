@@ -1,9 +1,8 @@
 import React from "react";
 import "./Footer.css";
-import footer_logo from "../Assets/Crozier.png";
-import instagram_icon from "../Assets/instagram_icon.png";
-import email_icon from "../Assets/email_icon.png";
-import whatsapp_icon from "../Assets/whatsapp_icon.png";
+import footer_logo from "../../Assets/Crozier.png";
+import email_icon from "../../Assets/email_icon.png";
+import whatsapp_icon from "../../Assets/whatsapp_icon.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

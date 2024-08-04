@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import react, { useState } from "react";
 import "./ContactForm.css";
 
 const ContactForm = () => {

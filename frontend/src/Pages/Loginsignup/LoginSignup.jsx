@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./CSS/LoginSignup.css";
+import "./LoginSignup.css";
+import { useContext } from "react";
 
 const LoginSignup = () => {
   const [state, setState] = useState("Login");
@@ -9,13 +10,15 @@ const LoginSignup = () => {
     email: "",
   });
 
+  const { url } = useContext(ShopContextProvider);
+
   const changeHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const login = async () => {
     let responseData;
-    await fetch("https://e-commerce-backend-u8n8.onrender.com/api/user/login", {
+    await fetch(url + "/api/user/login", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -37,7 +40,7 @@ const LoginSignup = () => {
 
   const signUp = async () => {
     let responseData;
-    await fetch("https://e-commerce-backend-u8n8.onrender.com/api/user/signup", {
+    await fetch(url + "/api/user/signup", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
