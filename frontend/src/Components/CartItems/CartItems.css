@@ -40,10 +40,13 @@
 }
 
 .cartitems-quantity {
-  width: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 64px;
   height: 50px;
   border: 2px solid #ebebeb;
-  background: #fff;
+  background: #fff; */
 }
 
 .cartitems-down {
@@ -110,6 +113,26 @@
   background: black;
   color: white;
   cursor: pointer;
+}
+
+.cartitems-payment-methods {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin: 20px auto auto auto;
+}
+
+.cartitems-payment-methods {
+  font-size: 17px;
+}
+
+.cartitems-payment-methods input {
+  margin: 20px 10px 10px 10px;
+}
+
+.cartitems-promocode .proceed-btn {
+  margin: 40px auto auto auto;
 }
 
 @media (max-width: 1280px) {

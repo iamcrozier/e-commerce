@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./CartItems.css";
 import { ShopContext } from "../../Context/ShopContext.jsx";
 import remove_icon from "../Assets/cart_cross_icon.png";
@@ -6,6 +6,11 @@ import remove_icon from "../Assets/cart_cross_icon.png";
 const CartItems = () => {
   const { all_product, cartItems, removeFromCart, getTotalCartAmount } =
     useContext(ShopContext);
+
+  const [paymentMethod, setPaymentMethod] = useState("");
+  const handleChange = (event) => {
+    setPaymentMethod(event.target.value);
+  };
 
   return (
     <div className="cartitems">
@@ -26,9 +31,7 @@ const CartItems = () => {
                 <img src={e.image} alt="" className="cartitems-product-icon" />
                 <p>{e.name}</p>
                 <p>&#8377;{e.new_price}</p>
-                <button className="cartitems-quantity">
-                  {cartItems[e.id]}
-                </button>
+                <p className="cartitems-quantity">{cartItems[e.id]}</p>
                 <p>&#8377;{e.new_price * cartItems[e.id]}</p>
                 <img
                   className="cartitems-remove-icon"
@@ -64,7 +67,6 @@ const CartItems = () => {
               <h3>&#8377;{getTotalCartAmount()}</h3>
             </div>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
         </div>
         <div className="cartitems-promocode">
           <p>If you have a promo code, Enter it here</p>
@@ -72,8 +74,34 @@ const CartItems = () => {
             <input type="text" placeholder="promo-code" />
             <button>Submit</button>
           </div>
+          <div className="cartitems-payment-methods">
+            <div className="cartitems-payment-method">
+              <input
+                type="radio"
+                name="paymentmethod"
+                id="cod"
+                value="cod"
+                checked={paymentMethod === "cod"}
+                onChange={handleChange}
+              />
+              <label htmlFor="cod">Cash on Delivery</label>
+            </div>
+            <div className="cartitems-payment-method">
+              <input
+                type="radio"
+                name="paymentmethod"
+                id="prepay"
+                value="prepay"
+                checked={paymentMethod === "prepay"}
+                onChange={handleChange}
+              />
+              <label htmlFor="prepay">Pre Payment</label>
+            </div>
+          </div>
+          <button className="proceed-btn">PROCEED TO CHECKOUT</button>
         </div>
       </div>
+      <hr />
     </div>
   );
 };
