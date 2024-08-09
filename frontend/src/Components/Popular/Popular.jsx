@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Popular.css";
 import Item from "../Item/Item";
+import { ShopContext } from "../../Context/ShopContext.jsx";
 
 const Popular = () => {
+  const { url } = useContext(ShopContext);
   const [data_product, setData_product] = useState([]);
   useEffect(() => {
-    fetch("https://e-commerce-backend-u8n8.onrender.com/api/collection/popular")
+    fetch(url + "/api/collection/popular")
       .then((res) => res.json())
       .then((data) => {
         setData_product(data);

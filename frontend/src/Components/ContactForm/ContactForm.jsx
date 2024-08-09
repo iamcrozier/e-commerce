@@ -35,19 +35,25 @@ const ContactForm = () => {
             value={formData.name}
             type="text"
             name="name"
+            autoComplete="0"
+            required
             id=""
             placeholder="Name"
           />
+        </div>
+        <div className="row">
           <input
             onChange={handler}
             value={formData.email}
             type="emeil"
             name="email"
+            autoComplete="0"
+            required
             id=""
             placeholder="Email"
           />
         </div>
-        <div className="subject">
+        <div className="row">
           <input
             onChange={handler}
             value={formData.subject}
@@ -56,13 +62,15 @@ const ContactForm = () => {
             placeholder="Subject"
           />
         </div>
-        <div className="message">
+        <div className="row">
           <textarea
             onChange={handler}
             value={formData.message}
             name="message"
             placeholder="Message"
           />
+        </div>
+        <div className="row submit-btn">
           <button onClick={setEmpty}>Submit</button>
         </div>
       </form>

@@ -2,13 +2,16 @@ import React, { useContext, useRef, useState } from "react";
 import "./Navbar.css";
 import logo from "../../Assets/Crozier.png";
 import cart_icon from "../../Assets/cart_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 import nav_dropdown_icon from "../../Assets/nav_dropdown_icon.png";
+import profile_icon from "../../Assets/profile_icon.png";
+import bag_icon from "../../Assets/bag_icon.png";
+import logout_icon from "../../Assets/logout_icon.png";
 
-const Navbar = () => {
+const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("shop");
-  const { getTotalCartItems } = useContext(ShopContext);
+  const { getTotalCartItems, token, setToken } = useContext(ShopContext);
   const menuRef = useRef();
 
   const dropdown_toggle = (e) => {
@@ -16,10 +19,18 @@ const Navbar = () => {
     e.target.classList.toggle("open");
   };
 
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  };
+
   return (
     <div className="navbar">
       <div className="nav-logo">
-        <img src={logo} alt="" />
+        <img onClick={() => navigate("/")} src={logo} alt="" />
         <p></p>
       </div>
       <img
@@ -63,23 +74,23 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="nav-login-cart">
-        {localStorage.getItem("auth-token") ? (
-          <button
-            onClick={() => {
-              localStorage.removeItem("auth-token");
-              window.location.replace("/");
-            }}
-          >
-            Logout
-          </button>
+        {token ? (
+          <div className="navbar-profile">
+            <img src={profile_icon} alt="" />
+            <ul className="nav-profile-dropdown">
+              <li onClick={() => navigate("/myorders")}>
+                <img src={bag_icon} alt="" />
+                <p>Order</p>
+              </li>
+              <hr />
+              <li onClick={logout}>
+                <img src={logout_icon} alt="" />
+                <p>Logout</p>
+              </li>
+            </ul>
+          </div>
         ) : (
-          <Link
-            className="nav-login-btn"
-            style={{ textDecoration: "none" }}
-            to="/login"
-          >
-            <button>Login</button>
-          </Link>
+          <button onClick={() => setShowLogin(true)}>Sign In</button>
         )}
 
         <Link style={{ textDecoration: "none" }} to="/cart">

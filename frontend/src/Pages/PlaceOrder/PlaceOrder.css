@@ -1,0 +1,115 @@
+.place-order {
+  display: flex;
+  align-content: start;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 100px;
+}
+
+.place-order-left {
+  width: 100%;
+  max-width: max(30%, 500px);
+}
+
+.place-order-left .title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.place-order-left input {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  outline-color: tomato;
+}
+
+.place-order-left .multi-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.place-order-right {
+  width: 100%;
+  max-width: max(40%, 500px);
+}
+
+.place-order .cart-total button {
+  margin-top: 30px;
+}
+
+.cart-total {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-totoal-details {
+  display: flex;
+  justify-content: space-between;
+  color: #555;
+}
+
+.cart-total hr {
+  margin: 10px 0;
+}
+
+.cart-total button {
+  border: none;
+  background-color: tomato;
+  color: white;
+  width: max(15vw, 200px);
+  padding: 12px 0;
+  cursor: pointer;
+}
+
+.cartitems-payment-methods {
+  display: block;
+  padding: 0;
+}
+
+.cartitems-payment-methods {
+  font-size: 17px;
+}
+
+.cartitems-payment-methods input {
+  margin: 20px 10px 10px 10px;
+}
+
+.cartitems-promocode .proceed-btn {
+  margin: 40px auto auto auto;
+  width: 262px;
+  height: 58px;
+  outline: none;
+  border: none;
+  background: #ff5a5a;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .place-order-right {
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .place-order {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .place-order-right {
+    margin: auto;
+    padding-right: 0px;
+  }
+
+  .place-order-left {
+    margin: auto;
+  }
+}

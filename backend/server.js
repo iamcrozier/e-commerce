@@ -8,9 +8,10 @@ import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRouter.js";
 import cartRouter from "./routes/cartRouter.js";
 import collectionRouter from "./routes/collectionRouter.js";
+import orderRouter from "./routes/orderRouter.js";
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 
 app.use(express.json());
 app.use(cors());
@@ -23,9 +24,10 @@ app.use("/api/product", productRouter);
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/collection", collectionRouter);
+app.use("/api/order", orderRouter);
 
 app.get("/", (req, res) => {
-  res.send("Express App is running");
+  res.send("Express App is running!");
 });
 
 // Image storage engine
@@ -47,7 +49,7 @@ app.use("/images", express.static("upload/images"));
 app.post("/upload", upload.single("product"), (req, res) => {
   res.json({
     success: 1,
-    image_url: `https://e-commerce-backend-u8n8.onrender.com/images/${req.file.filename}`,
+    image_url: `/images/${req.file.filename}`,
   });
 });
 

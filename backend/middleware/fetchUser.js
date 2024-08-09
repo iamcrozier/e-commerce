@@ -2,19 +2,20 @@ import jwt from "jsonwebtoken";
 
 // Creating middleware to fetch user
 const fetchUser = async (req, res, next) => {
-  const token = req.header("auth-token");
+  const token = req.header("token");
+
   if (!token) {
-    res.status(401).send({ error: "Please authenticate using a valid token" });
-  } else {
-    try {
-      const data = jwt.verify(token, "secret_ecom");
-      req.user = data.user;
-      next();
-    } catch (error) {
-      res
-        .status(401)
-        .send({ errors: "Please authenticate using a valid token" });
-    }
+    return res.status(401).json({
+      success: false,
+      message: "Not Authorized. Please log in again.",
+    });
+  }
+  try {
+    const token_decode = jwt.verify(token, process.env.JWT_SECRET);
+    req.body.userId = token_decode.id;
+    next();
+  } catch (error) {
+    return res.status(403).json({ success: false, message: "Invalid token." });
   }
 };
 

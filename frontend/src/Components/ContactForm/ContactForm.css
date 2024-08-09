@@ -1,50 +1,37 @@
 .contactform {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: scroll;
-}
-
-form {
-  margin-top: -200px;
-  width: 100%;
-}
-
-.row {
-  display: flex;
-  width: 80%;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.row input {
-  width: 50%;
-  box-sizing: border-box;
-}
-
-.subject {
-  margin: auto;
-  width: 80%;
-  max-width: 1000px;
-  padding: 10px;
-}
-
-.subject input {
-  width: 100%;
-
-  box-sizing: border-box;
-}
-.message {
-  width: 80%;
-  margin: auto;
-  max-width: 1000px;
-  box-sizing: border-box;
-  padding: 5px;
+  width: 800px;
+  max-width: 800px;
+  height: 700px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  animation: fadeIn 1s;
+  box-shadow: 2px 3px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.contactform form {
+  width: 100%;
+}
+
+.contactform .row {
+  display: flex;
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.contactform .row input,
+.contactform .row textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contactform .row textarea {
+  min-height: 200px;
+  max-height: 300px;
 }
 
 .message textarea {
@@ -65,14 +52,28 @@ form input {
   outline-color: tomato;
 }
 
-button {
-  width: 50%;
+.row.submit-btn {
+  display: flex;
   margin: auto;
-  max-width: 800px;
-  background-color: rgb(247, 107, 82);
+  margin-top: 50px;
+  width: 80%;
+}
+
+.contactform form button {
+  width: 200px;
+  margin: auto;
+  margin-right: 0%;
+  max-width: 200px;
+  background-color: #ff5a5a;
   border: none;
   outline: none;
   box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.2);
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+
+.contactform form button:hover {
+  transform: scale(1.02);
+  color: white;
 }

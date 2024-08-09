@@ -34,7 +34,7 @@
 } */
 
 .cartitems-remove-icon {
-  width: 15px;
+  width: 90px;
   padding: 0px 40px;
   cursor: pointer;
 }
@@ -68,7 +68,7 @@
   padding: 15px 0;
 }
 
-.cartitems-total button {
+/* .cartitems-total button {
   width: 262px;
   height: 58px;
   outline: none;
@@ -78,7 +78,7 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-}
+} */
 
 .cartitems-promocode {
   flex: 1;
@@ -93,29 +93,40 @@
   width: 504px;
   margin-top: 15px;
   padding-left: 20px;
-  height: 58px;
+  height: 40px;
   background: #eaeaea;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eaeaea;
+  border-radius: 4px;
 }
 
 .cartitems-promobox input {
+  font-size: 16px;
+  width: 332px;
+  height: 16px;
+  margin: 0;
+  box-sizing: border-box;
+  background: transparent;
   border: none;
   outline: none;
-  background: transparent;
-  font-size: 16px;
-  width: 330px;
-  height: 50px;
+  padding-left: 10px;
 }
 
 .cartitems-promobox button {
   width: 170px;
-  height: 58px;
+  height: 40px;
   font-size: 16px;
   background: black;
   color: white;
   cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 
-.cartitems-payment-methods {
+/* .cartitems-payment-methods {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,10 +140,19 @@
 
 .cartitems-payment-methods input {
   margin: 20px 10px 10px 10px;
-}
+} */
 
-.cartitems-promocode .proceed-btn {
+.cartitems-promocode .proceed-btns {
   margin: 40px auto auto auto;
+  width: 262px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background: #ff5a5a;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 @media (max-width: 1280px) {

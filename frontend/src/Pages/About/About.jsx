@@ -7,7 +7,7 @@ const About = () => {
       <h1>About Us</h1>
       <h2>Welcome to Crozier!</h2>
       <p>
-        At Croxier, we believe that a T-shirt is more than just a piece of
+        At Crozier, we believe that a T-shirt is more than just a piece of
         clothing—it's a canvas for self-expression, creativity, and
         individuality. Our mission is to bring you the best in unique,
         high-quality T-shirts that reflect your personality and style.
@@ -44,9 +44,12 @@ const About = () => {
       <p>
         Have questions or feedback? We’d love to hear from you! Reach out to us
         at <b>customercare.crozier@gmail.com</b> or through our
-        <a href="/contact"> Contact Form</a>. We’re always here to help. Thank
-        you for choosing <b>Crozier</b>. We hope you love our T-shirts as much
-        as we love creating them for you! Warm regards, The Crozier Team
+        <b>
+          <a href="/contact"> Contact Form</a>
+        </b>
+        . We’re always here to help. Thank you for choosing <b>Crozier</b>. We
+        hope you love our T-shirts as much as we love creating them for you!
+        Warm regards, The Crozier Team.
       </p>
     </div>
   );

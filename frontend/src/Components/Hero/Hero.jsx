@@ -7,25 +7,14 @@ import hero_image from "../../Assets/hero_image.png";
 const Hero = () => {
   return (
     <div className="hero">
-      <div className="hero-left">
-        <h2>NEW ARRIVALS ONLY</h2>
-        <div>
-          <div className="hero-hand-icon">
-            <p>new</p>
-            <img src={hand_icon} alt="" />
-          </div>
-          <p>collection</p>
-          <p>for everyone</p>
-        </div>
-        <a href="#newcollection">
-          <div className="hero-latest-btn">
-            <div>Latest Collection</div>
-            <img src={arrow_icon} alt="" />
-          </div>
-        </a>
-      </div>
-      <div className="hero-right">
-        <img src={hero_image} alt="" />
+      <div className="hero-contents">
+        <h2>Order Your favorite T-Shirt here</h2>
+        <p>
+          Explore our diverse collection of T-shirts, each crafted with premium
+          materials and designed with passion. Our mission is to bring style and
+          comfort to your wardrobe, one unique piece at a time.
+        </p>
+        <button>View Menu</button>
       </div>
     </div>
   );

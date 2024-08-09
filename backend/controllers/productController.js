@@ -15,7 +15,7 @@ const addProduct = async (req, res) => {
     id: id,
     name: req.body.name,
     image: req.body.image,
-    description:req.body.description,
+    description: req.body.description,
     category: req.body.category,
     new_price: req.body.new_price,
     old_price: req.body.old_price,
@@ -35,7 +35,7 @@ const removeProduct = async (req, res) => {
 // Get all product data
 const getAllProduct = async (req, res) => {
   let products = await ProductModel.find({});
-  res.json(products);
+  res.json({ success: true, data: products });
 };
 
 export { addProduct, removeProduct, getAllProduct };

@@ -2,15 +2,13 @@ import React, { useContext, useState } from "react";
 import "./CartItems.css";
 import { ShopContext } from "../../Context/ShopContext.jsx";
 import remove_icon from "../../Assets/cart_cross_icon.png";
+import { useNavigate } from "react-router-dom";
 
 const CartItems = () => {
-  const { all_product, cartItems, removeFromCart, getTotalCartAmount } =
-    useContext(ShopContext);
+  const navigate = useNavigate();
 
-  const [paymentMethod, setPaymentMethod] = useState("");
-  const handleChange = (event) => {
-    setPaymentMethod(event.target.value);
-  };
+  const { all_product, cartItem, removeFromCart, getTotalCartAmount } =
+    useContext(ShopContext);
 
   return (
     <div className="cartitems">
@@ -23,21 +21,24 @@ const CartItems = () => {
         <p>Remove</p>
       </div>
       <hr />
-      {all_product.map((e) => {
-        if (cartItems[e.id] > 0) {
+      {all_product.map((e, index) => {
+        if (cartItem[e._id] > 0) {
           return (
             <div>
-              <div className="cartitems-format cartitems-format-main">
+              <div
+                key={index}
+                className="cartitems-format cartitems-format-main"
+              >
                 <img src={e.image} alt="" className="cartitems-product-icon" />
                 <p>{e.name}</p>
                 <p>&#8377;{e.new_price}</p>
-                <p className="cartitems-quantity">{cartItems[e.id]}</p>
-                <p>&#8377;{e.new_price * cartItems[e.id]}</p>
+                <p className="cartitems-quantity">{cartItem[e._id]}</p>
+                <p>&#8377;{e.new_price * cartItem[e._id]}</p>
                 <img
                   className="cartitems-remove-icon"
                   src={remove_icon}
                   onClick={() => {
-                    removeFromCart(e.id);
+                    removeFromCart(e._id);
                   }}
                   alt=""
                 />
@@ -53,8 +54,8 @@ const CartItems = () => {
           <h1>Cart Totals</h1>
           <div>
             <div className="cartitems-total-items">
-              <p>Subtotal</p>
-              <p>&#8377;{getTotalCartAmount()}</p>
+              <p>Subtotal </p>
+              <p> &#8377;{getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cartitems-total-items">
@@ -74,31 +75,10 @@ const CartItems = () => {
             <input type="text" placeholder="promo-code" />
             <button>Submit</button>
           </div>
-          <div className="cartitems-payment-methods">
-            <div className="cartitems-payment-method">
-              <input
-                type="radio"
-                name="paymentmethod"
-                id="cod"
-                value="cod"
-                checked={paymentMethod === "cod"}
-                onChange={handleChange}
-              />
-              <label htmlFor="cod">Cash on Delivery</label>
-            </div>
-            <div className="cartitems-payment-method">
-              <input
-                type="radio"
-                name="paymentmethod"
-                id="prepay"
-                value="prepay"
-                checked={paymentMethod === "prepay"}
-                onChange={handleChange}
-              />
-              <label htmlFor="prepay">Pre Payment</label>
-            </div>
-          </div>
-          <button className="proceed-btn">PROCEED TO CHECKOUT</button>
+
+          <button onClick={() => navigate("/order")} className="proceed-btns">
+            PROCEED TO CHECKOUT
+          </button>
         </div>
       </div>
       <hr />
